@@ -1,2 +1,2 @@
 FROM nginx:alpine
-COPY . src/index.html
+COPY SRC/index.html /usr/share/nginx/html
