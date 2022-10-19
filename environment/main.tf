@@ -9,8 +9,8 @@ terraform {
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = "kkk"
-  secret_key = "oooo"
+  access_key = "d"
+  secret_key = "d"
 }
 
 resource "aws_iam_role" "eks-iam-role" {
@@ -101,9 +101,9 @@ resource "aws_iam_role" "workernodes" {
   instance_types = ["t2.micro"]
  
   scaling_config {
-   desired_size = 1
-   max_size   = 1
-   min_size   = 1
+   desired_size = 2
+   max_size   = 2
+   min_size   = 2
   }
  
   depends_on = [

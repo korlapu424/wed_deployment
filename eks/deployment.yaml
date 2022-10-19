@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-demo
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web_deployment
+  template:
+    metadata:
+      labels:
+        app: web_deployment
+    spec:
+      containers:
+        - name: back-end
+          image: 596176031958.dkr.ecr.us-east-1.amazonaws.com/web_deployment:latest
+          ports:
+            - containerPort: 80
