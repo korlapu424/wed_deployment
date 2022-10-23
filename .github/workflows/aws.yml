@@ -68,6 +68,8 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        echo $ECR_REGISTRY
+        echo $ECR_REPOSITORY
         #docker tag web_deployment:latest 397274864089.dkr.ecr.us-east-1.amazonaws.com/web_deployment:latest
         #docker push 397274864089.dkr.ecr.us-east-1.amazonaws.com/web_deployment:latest
         docker build -t 397274864089.dkr.ecr.us-east-1.amazonaws.com/web_deployment:latest .
