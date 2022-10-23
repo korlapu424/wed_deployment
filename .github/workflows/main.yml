@@ -31,6 +31,7 @@ jobs:
       run: |
        pwd
        ls
+       cat $HOME/deployment.yaml
        cp ./eks .
        ls
        kubectl apply -f $GITHUB_WORKSPACE/eks/deployment.yaml
