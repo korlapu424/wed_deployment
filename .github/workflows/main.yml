@@ -30,6 +30,7 @@ jobs:
     - name: Deploy the image
       run: |
        pwd
+       ls
        cd eks
        ls
        kubectl apply -f eks/deployment.yaml
