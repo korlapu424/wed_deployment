@@ -33,6 +33,9 @@ jobs:
        aws eks update-kubeconfig --name web_deployment-cluster
     - name: Deploy the image
       working-directory: eks
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}      
       run: |
        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
        kubectl apply -f deployment.yaml
