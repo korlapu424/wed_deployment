@@ -3,6 +3,12 @@ name: Deploy to the EKS
 on:
   push:
     branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      trigger_next:
+        description: 'Whether to run the subsequent workflows after triggering this one manully.'
+        required: false
+        default: false
   repository_dispatch:
     types: [trigger-workflow-2]
   
