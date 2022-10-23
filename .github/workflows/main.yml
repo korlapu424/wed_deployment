@@ -28,10 +28,11 @@ jobs:
       run: |
        aws eks update-kubeconfig --name web_deployment-cluster
     - name: Deploy the image
+      working-directory: ./eks
       run: |
        pwd
        ls
-       cat $HOME/deployment.yaml
+       cat deployment.yaml
        cp ./eks .
        ls
        kubectl apply -f $GITHUB_WORKSPACE/eks/deployment.yaml
