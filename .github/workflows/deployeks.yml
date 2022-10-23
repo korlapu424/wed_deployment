@@ -3,6 +3,8 @@ name: Deploy to the EKS
 on:
   push:
     branches: [ "master" ]
+  repository_dispatch:
+    types: [trigger-workflow-2]
   
 
 env:
@@ -17,9 +19,6 @@ jobs:
     name: Deploy to EKS
     runs-on: ubuntu-latest
     environment: dev
-    env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
 
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +38,9 @@ jobs:
        aws eks update-kubeconfig --name web_deployment-cluster
     - name: Deploy the image
       working-directory: eks
-            
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}      
       run: |
        #docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
        sleep 15s
