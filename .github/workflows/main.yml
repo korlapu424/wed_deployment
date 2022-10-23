@@ -31,7 +31,7 @@ jobs:
       run: |
        pwd
        ls
-       cd eks
+       cd ./eks
        ls
        kubectl apply -f eks/deployment.yaml
        kubectl apply -f eks/service.yaml
