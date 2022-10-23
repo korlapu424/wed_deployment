@@ -113,3 +113,11 @@ resource "aws_iam_role" "workernodes" {
   ]
  }
 
+provider "kubernetes" {
+  config_context = "minikube"
+}
+resource "kubernetes_namespace" "webapp" {
+  metadata {
+    name = "webapp"
+  }
+}

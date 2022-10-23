@@ -40,7 +40,7 @@ jobs:
     - name: Kube config update
       run: |
        aws eks update-kubeconfig --name web_deployment-cluster
-       kubectl create namespace webapp
+       #kubectl create namespace webapp
     - name: Deploy the image
       working-directory: eks
       env:
