@@ -27,5 +27,9 @@ jobs:
     - name: Kube config update
       run: |
        aws eks update-kubeconfig --name web_deployment-cluster
+    - name: Deploy the image
+      run: |
+       kubectl apply -f /eks/deployment.yaml
+       kubectl apply -f /eks/service.yaml
 
     
