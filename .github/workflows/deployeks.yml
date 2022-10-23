@@ -40,6 +40,7 @@ jobs:
     - name: Kube config update
       run: |
        aws eks update-kubeconfig --name web_deployment-cluster
+       kubectl create namespace webapp
     - name: Deploy the image
       working-directory: eks
       env:
@@ -48,6 +49,6 @@ jobs:
       run: |
        #docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
        sleep 15s
-       kubectl apply -f deployment.yaml
-       kubectl apply -f service.yaml
+       kubectl apply -f deployment.yaml -n webapp
+       kubectl apply -f service.yaml -n webapp
     
