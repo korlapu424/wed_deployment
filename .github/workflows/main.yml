@@ -31,7 +31,6 @@ jobs:
     - name: Deploy the image
       working-directory: eks
       run: |
-       pwd
-       ls
-       cat deployment.yaml
-    
+       kubectl apply -f deployment.yaml
+       kubectl apply -f service.yaml
+  
