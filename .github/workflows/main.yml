@@ -37,7 +37,8 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}      
       run: |
-       docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+       #docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+       sleep 15s
        kubectl apply -f deployment.yaml
        kubectl apply -f service.yaml
   
