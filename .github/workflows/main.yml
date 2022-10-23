@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy to EKS
     runs-on: ubuntu-latest
     environment: dev
 
