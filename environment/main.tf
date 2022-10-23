@@ -112,12 +112,3 @@ resource "aws_iam_role" "workernodes" {
    #aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
   ]
  }
-
-provider "kubernetes" {
-  config_context = "minikube"
-}
-resource "kubernetes_namespace" "webapp" {
-  metadata {
-    name = "webapp"
-  }
-}

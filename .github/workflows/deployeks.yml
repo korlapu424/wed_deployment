@@ -40,6 +40,14 @@ jobs:
     - name: Kube config update
       run: |
        aws eks update-kubeconfig --name web_deployment-cluster
+       kubectl get namespaces > namespaces.txt
+       if grep "webapp" namespaces.txt
+       then
+          echo "namespace already exist, skipping namespace creation"
+       else
+          kubectl create namespace webapp
+          echo "Name Space created"
+       fi
        #kubectl create namespace webapp
     - name: Deploy the image
       working-directory: eks
